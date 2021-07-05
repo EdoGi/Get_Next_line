@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line_utils.c                              :+:      :+:    :+:   */
+/*   get_next_line_utils_bonus.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: egiacomi <egiacomi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/28 18:30:51 by egiacomi          #+#    #+#             */
-/*   Updated: 2021/07/05 15:29:58 by egiacomi         ###   ########.fr       */
+/*   Created: 2021/07/05 16:43:02 by egiacomi          #+#    #+#             */
+/*   Updated: 2021/07/05 18:10:50 by egiacomi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 #include <stdlib.h>
 
 int	gnl_strlen(char *str)

@@ -1,0 +1,14 @@
+Ceci est un texte.
+Mais c'est aussi un test.
+C'est sûrement un texte test alors !
+.. Oui mais ..
+C'est aussi un test texte ;
+Tu as raison, merci pour la précision.
+Mais voyons, c' est normal mon bon con !
+Au revoir.
+
+1
+12
+..
+ . 
+Fin.
