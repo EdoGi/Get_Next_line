@@ -6,7 +6,7 @@
 /*   By: egiacomi <egiacomi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/28 18:30:56 by egiacomi          #+#    #+#             */
-/*   Updated: 2021/07/05 15:26:27 by egiacomi         ###   ########.fr       */
+/*   Updated: 2021/07/06 20:49:43 by egiacomi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 # define GET_NEXT_LINE_H
 
 # include <stddef.h>
+# include <stdlib.h>
 
 int		gnl_strlen(char *str);
 int		get_next_line(int fd, char **line);

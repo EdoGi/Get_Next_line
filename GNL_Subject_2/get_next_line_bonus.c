@@ -6,14 +6,12 @@
 /*   By: egiacomi <egiacomi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/28 18:30:53 by egiacomi          #+#    #+#             */
-/*   Updated: 2021/07/05 17:35:06 by egiacomi         ###   ########.fr       */
+/*   Updated: 2021/09/14 23:39:23 by egiacomi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line_bonus.h"
-#include <stdlib.h>
 #include <unistd.h>
-#include <stdio.h>
 
 char	*gnl_strchr(char *s, int c)
 {
@@ -32,35 +30,42 @@ char	*gnl_strchr(char *s, int c)
 	return (NULL);
 }
 
-int	gnl_return(int ret, char **line, char *mem, char *buf)
+char	*gnl_return(int ret, char *mem, char *buf)
 {
+	char	*line;
+
+	if (*mem == '\0')
+	{
+		free(mem);
+		return (NULL);
+	}
 	if (ret > 0)
 	{
-		*line = gnl_tonl(mem);
+		line = gnl_tonl(mem);
 		gnl_strchr(buf, '\n');
 		free(mem);
-		return (1);
+		return (line);
 	}
 	if (ret == 0)
 	{
-		*line = gnl_strdup(mem);
+		line = gnl_tonl(mem);
 		free(mem);
 		buf[0] = 0;
+		return (line);
 	}
-	return (0);
+	return (NULL);
 }
 
-int	get_next_line(int fd, char **line)
+char	*get_next_line(int fd)
 {
 	int				ret;
-	static 	t_list	buffer[1024];
+	static t_list	buffer[1024];
 	char			*mem;
 
 	ret = 1;
-	*line = NULL;
 	mem = NULL;
-	if (fd < 0 || BUFFER_SIZE <= 0 || !line)
-		return (-1);
+	if (fd < 0 || BUFFER_SIZE <= 0 || fd > 1024)
+		return (NULL);
 	mem = gnl_strjoin(mem, buffer[fd].buf);
 	while (is_not_newline(buffer[fd].buf) && ret)
 	{
@@ -68,10 +73,10 @@ int	get_next_line(int fd, char **line)
 		if (ret < 0)
 		{	
 			free(mem);
-			return (-1);
+			return (NULL);
 		}
 		buffer[fd].buf[ret] = '\0';
 		mem = gnl_strjoin(mem, buffer[fd].buf);
 	}
-	return (gnl_return(ret, line, mem, buffer[fd].buf));
+	return (gnl_return(ret, mem, buffer[fd].buf));
 }

@@ -1,17 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line_utils_bonus.c                        :+:      :+:    :+:   */
+/*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: egiacomi <egiacomi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/05 16:43:02 by egiacomi          #+#    #+#             */
-/*   Updated: 2021/07/05 18:10:50 by egiacomi         ###   ########.fr       */
+/*   Created: 2021/06/28 18:30:51 by egiacomi          #+#    #+#             */
+/*   Updated: 2021/09/14 23:39:24 by egiacomi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line_bonus.h"
-#include <stdlib.h>
+#include "get_next_line.h"
 
 int	gnl_strlen(char *str)
 {
@@ -89,6 +88,8 @@ char	*gnl_tonl(char *str)
 
 	i = 0;
 	while (str[i] && str[i] != '\n')
+		i++;
+	if (str[i] == '\n')
 		i++;
 	newline = malloc(sizeof(char) * i + 1);
 	if (!newline)

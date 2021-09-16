@@ -6,7 +6,7 @@
 /*   By: egiacomi <egiacomi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/05 16:42:46 by egiacomi          #+#    #+#             */
-/*   Updated: 2021/07/05 16:42:51 by egiacomi         ###   ########.fr       */
+/*   Updated: 2021/07/06 14:39:10 by egiacomi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,10 +56,10 @@ int	get_next_line(int fd, char **line)
 	char		*mem;
 
 	ret = 1;
-	*line = NULL;
 	mem = NULL;
 	if (fd < 0 || BUFFER_SIZE <= 0 || !line)
 		return (-1);
+	*line = NULL;
 	mem = gnl_strjoin(mem, buf);
 	while (is_not_newline(buf) && ret)
 	{
